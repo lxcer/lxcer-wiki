@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archive (optional - uncomment if you don't want to push archive)
+# _archive/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
