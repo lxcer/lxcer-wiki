@@ -15,11 +15,35 @@ Thumbs.db
 
 # Raw sources (original materials - keep only locally)
 raw/
+assets/
+attachments/
 
 # Archive (optional - uncomment if you don't want to push archive)
 # _archive/
+
+# Large binary files (don't push to GitHub)
+*.pdf
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.flac
+*.iso
+*.dmg
+*.img
 
 # Temporary files
 *.tmp
 *.temp
 /tmp/
+
+# Obsidian workspace/cache
+.obsidian/workspace
+.obsidian/cache
+.obsidian/*.log
