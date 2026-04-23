@@ -13,8 +13,7 @@ Thumbs.db
 *.swo
 *~
 
-# Raw sources (original materials - keep only locally)
-raw/
+# Raw sources (tracked in repository)
 assets/
 attachments/
 
