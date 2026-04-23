@@ -12,6 +12,24 @@ tags: [log, operations, maintenance]
 
 ---
 
+## [2026-04-23] ingest | Hermes + Docker 代理教程（按修改后原文提取）
+
+**来源**: `raw/articles/hermes-gateway-proxy-hotplug-practice-2026-04-22.md`
+
+**操作内容**:
+1. 重新按修改后原文提取，不引入已删除段落
+2. 新增来源摘要页：`sources/hermes-docker-proxy-connectivity-source.md`
+3. 新增概念页：
+   - `concepts/docker-proxy-listen-scope.md`
+   - `concepts/gateway-proxy-env-inheritance.md`
+4. 更新索引 `index.md`：补充新页面与统计
+
+**结果**:
+- 将工程教程沉淀为可复用的“问题模型 + 解法模型”知识节点
+- 与既有页面形成双向链接，支持后续 query/lint 复用
+
+---
+
 ## [2026-04-23] update | Hermes + Docker 代理教程收录与重写
 
 **来源**: `raw/articles/hermes-gateway-proxy-hotplug-practice-2026-04-22.md`

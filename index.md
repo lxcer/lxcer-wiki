@@ -19,6 +19,7 @@ tags: [index, navigation, complete]
 | 页面 | 来源类型 | 摘要 |
 |------|----------|------|
 | [[llm-wiki-pattern-source]] | 概念文档 | LLM Wiki个人知识库模式的核心方法论 |
+| [[hermes-docker-proxy-connectivity-source]] | 工程教程 | Hermes + Docker 代理连通性方案与排障要点 |
 
 ---
 
@@ -36,6 +37,8 @@ tags: [index, navigation, complete]
 | [[zettelkasten]] | 笔记方法 | 原子化与链接导向笔记系统 |
 | [[digital-garden]] | 写作范式 | 持续演化的公开笔记实践 |
 | [[compounding-knowledge]] | 学习机制 | 知识连接带来的复利增长 |
+| [[docker-proxy-listen-scope]] | 工程排障 | 容器可用但宿主机不可用的监听范围问题 |
+| [[gateway-proxy-env-inheritance]] | 运维架构 | gateway 不继承 shell 代理变量的根因与解法 |
 
 ---
 
@@ -66,11 +69,11 @@ tags: [index, navigation, complete]
 
 ## 统计
 
-- 来源摘要: 1
-- 概念页面: 8
+- 来源摘要: 2
+- 概念页面: 10
 - 实体页面: 0
 - 综合分析: 0
-- **总计: 9**
+- **总计: 12**
 
 ---
 
