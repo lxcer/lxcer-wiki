@@ -12,6 +12,24 @@ tags: [log, operations, maintenance]
 
 ---
 
+## [2026-04-23] update | Hermes + Docker 代理教程收录与重写
+
+**来源**: `raw/articles/hermes-gateway-proxy-hotplug-practice-2026-04-22.md`
+
+**操作内容**:
+1. 将文章主题统一为：`hermes + docker代理：解决 hermes 国内无法连接 GPT/Claude 等问题`
+2. 教程化重写结构，覆盖：Docker 搭建、监听地址修正、环境变量开关、Gateway 代理注入
+3. 脱敏处理：移除具体本机目录与主机指纹信息
+4. 补充高频坑位：
+   - 容器内可代理但宿主机不可代理
+   - Gateway 未继承代理环境导致 `Retrying in ... (attempt x/3)`
+
+**结果**:
+- 原始文章已收录并完成教程化更新
+- 内容可复用、可迁移，不依赖单机路径
+
+---
+
 ## [2026-04-23] lint | wiki-health-auto-fix
 
 **来源**: 健康检查与自动修复
