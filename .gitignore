@@ -13,10 +13,6 @@ Thumbs.db
 *.swo
 *~
 
-# Raw sources (tracked in repository)
-assets/
-attachments/
-
 # Archive (optional - uncomment if you don't want to push archive)
 # _archive/
 
@@ -43,6 +39,7 @@ attachments/
 /tmp/
 
 # Obsidian workspace/cache
-.obsidian/workspace
-.obsidian/cache
-.obsidian/*.log
+.obsidian/
+
+# claude
+.claude/
