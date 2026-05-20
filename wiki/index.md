@@ -1,7 +1,7 @@
 ---
 title: "Wiki 索引"
 created: 2026-04-14
-modified: 2026-04-23
+modified: 2026-05-20
 type: index
 tags: [index, navigation, complete]
 ---
@@ -56,6 +56,17 @@ tags: [index, navigation, complete]
 
 *暂无综合分析页面*
 
+
+---
+
+## GitHub Hunter 推荐
+
+每日自动扫描 GitHub 项目，按增长、热度和 README 快速理解整理。
+
+| 页面 | 用途 | 摘要 |
+|------|------|------|
+| [[github-hunter/index]] | 推荐页 | 每日 GitHub 开源项目推荐与分类导航 |
+
 ---
 
 ## 元页面
@@ -73,8 +84,9 @@ tags: [index, navigation, complete]
 - 概念页面: 10
 - 实体页面: 0
 - 综合分析: 0
-- **总计: 12**
+- GitHub Hunter: 1
+- **总计: 13**
 
 ---
 
-*最后更新: 2026-04-23*
+*最后更新: 2026-05-20*

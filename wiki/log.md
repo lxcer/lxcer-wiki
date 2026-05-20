@@ -1,7 +1,7 @@
 ---
 title: "Wiki 操作日志"
 created: 2026-04-14
-modified: 2026-04-23
+modified: 2026-05-20
 type: index
 tags: [log, operations, maintenance]
 ---
@@ -9,6 +9,27 @@ tags: [log, operations, maintenance]
 # Wiki 操作日志
 
 按时间顺序记录所有对Wiki的修改操作。
+
+
+
+---
+
+## [2026-05-20] ingest | GitHub Hunter 每日推荐
+
+**来源**: GitHub Search API + README 快速抓取（不 clone 仓库）
+
+**操作内容**:
+1. 扫描 star 上升/新项目热度与高 star 活跃项目
+2. 读取候选项目 README 并提取功能摘要、作者、时间、原始链接与分类
+3. 更新独立栏位 `github-hunter/`
+
+**更新文件**:
+- `github-hunter/index.md`
+- `github-hunter/daily/2026-05-20.md`
+- `index.md`
+- `.github-hunter/state.json`
+
+**今日项目**: ultraworkers/claw-code, openclaw/openclaw, affaan-m/ECC, multica-ai/andrej-karpathy-skills, obra/superpowers
 
 ---
 
