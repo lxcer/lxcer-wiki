@@ -29,10 +29,11 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-WIKI = Path(__file__).resolve().parents[1]
-STATE_DIR = WIKI / ".github-hunter"
+REPO_ROOT = Path(__file__).resolve().parents[1]
+WIKI = REPO_ROOT / "wiki" if (REPO_ROOT / "wiki" / "index.md").exists() else REPO_ROOT
+STATE_DIR = REPO_ROOT / ".github-hunter"
 STATE_FILE = STATE_DIR / "state.json"
-SECTION_DIR = WIKI / "github-hunter"
+SECTION_DIR = WIKI / "raw" / "github-hunter"
 DAILY_DIR = SECTION_DIR / "daily"
 INDEX_FILE = WIKI / "index.md"
 LOG_FILE = WIKI / "log.md"
@@ -169,52 +170,182 @@ def first_heading(md: str, fallback: str) -> str:
     return fallback
 
 
-def summarize_readme(repo: dict[str, Any], md: str) -> str:
-    text = clean_text(md)
-    desc = repo.get("description") or ""
-    paras = [p.strip() for p in re.split(r"\n\s*\n", text) if len(p.strip()) > 40]
-    chosen = ""
-    for p in paras[:8]:
-        if not re.match(r"^(installation|install|usage|quick start|docs|license|table of contents)$", p.strip(), re.I):
-            chosen = p
+def extract_candidate_paragraphs(md: str, limit: int = 4) -> list[str]:
+    text = clean_text(md, 9000)
+    paras = []
+    for p in re.split(r"\n\s*\n", text):
+        p = re.sub(r"\s+", " ", p).strip(" -•\t")
+        if len(p) < 45 or len(p) > 800:
+            continue
+        if re.search(r"^(installation|install|usage|quick start|docs|license|table of contents|contributing|security)\b", p, re.I):
+            continue
+        if re.search(r"badge|shields.io|npm install|pip install", p, re.I):
+            continue
+        paras.append(p)
+        if len(paras) >= limit:
             break
-    if not chosen:
-        chosen = desc or "README 信息较少，需后续人工复核。"
-    chosen = re.sub(r"\s+", " ", chosen).strip()
-    if len(chosen) > 260:
-        chosen = chosen[:257].rstrip() + "..."
-    if desc and desc.lower() not in chosen.lower():
-        return f"{desc.strip()} README 要点：{chosen}"
-    return chosen
+    return paras
 
 
-def extract_features(md: str, limit: int = 3) -> list[str]:
-    features: list[str] = []
+def extract_bullets(md: str, limit: int = 5) -> list[str]:
+    bullets: list[str] = []
     capture = False
-    for line in clean_text(md, 8000).splitlines():
+    for line in clean_text(md, 10000).splitlines():
         s = line.strip()
-        if re.match(r"^#{1,3}\s+(features|key features|what.*does|capabilities|亮点|特性|功能)", s, re.I):
+        if re.match(r"^#{1,3}\s+(features|key features|what.*does|capabilities|why|overview|亮点|特性|功能|简介)", s, re.I):
             capture = True
             continue
         if capture and s.startswith("#"):
             break
-        if capture and re.match(r"^[-*+]\s+", s):
+        if re.match(r"^[-*+]\s+", s):
             item = re.sub(r"^[-*+]\s+", "", s).strip()
-            if 8 <= len(item) <= 160:
-                features.append(item)
-                if len(features) >= limit:
+            if 10 <= len(item) <= 180 and not re.search(r"badge|license|npm install|pip install|sponsor", item, re.I):
+                bullets.append(item)
+                if len(bullets) >= limit:
                     break
-    if not features:
-        for line in clean_text(md, 4000).splitlines():
-            s = line.strip()
-            if re.match(r"^[-*+]\s+", s):
-                item = re.sub(r"^[-*+]\s+", "", s).strip()
-                if 12 <= len(item) <= 140 and not re.search(r"badge|license|npm|pip install", item, re.I):
-                    features.append(item)
-                    if len(features) >= limit:
-                        break
-    return features
+    return bullets
 
+
+def has_cjk(text: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", text or ""))
+
+
+def zh_phrase(text: str) -> str:
+    """Lightweight terminology translation for README-derived snippets."""
+    if not text:
+        return ""
+    replacements = [
+        (r"personal AI assistant", "个人 AI 助手"),
+        (r"AI assistant", "AI 助手"),
+        (r"coding agents?", "编程 Agent"),
+        (r"agent harness", "Agent 执行框架"),
+        (r"command line", "命令行"),
+        (r"CLI", "命令行工具"),
+        (r"workflow", "工作流"),
+        (r"workflows", "工作流"),
+        (r"developer tools?", "开发者工具"),
+        (r"framework", "框架"),
+        (r"skills?", "技能"),
+        (r"memory", "记忆"),
+        (r"security", "安全"),
+        (r"research", "研究"),
+        (r"open-source", "开源"),
+        (r"open source", "开源"),
+        (r"local-first", "本地优先"),
+        (r"automation", "自动化"),
+        (r"platform", "平台"),
+        (r"performance optimization", "性能优化"),
+        (r"reusable", "可复用"),
+        (r"methodology", "方法论"),
+        (r"large language models?", "大语言模型"),
+        (r"language models?", "语言模型"),
+    ]
+    out = text
+    for pat, repl in replacements:
+        out = re.sub(pat, repl, out, flags=re.I)
+    out = re.sub(r"\[[^\]]*\]\([^)]*\)", "", out)
+    out = re.sub(r"[`*_>#]+", "", out)
+    out = re.sub(r"\s+", " ", out).strip()
+    return out
+
+
+def infer_use_cases(category: str, keywords: list[str]) -> str:
+    hay = " ".join([category, *keywords]).lower()
+    cases = []
+    if "agent" in hay:
+        cases.append("构建或增强 AI Agent / 编程 Agent 工作流")
+    if "mcp" in hay:
+        cases.append("接入 MCP 或工具调用生态")
+    if "llm" in hay or "rag" in hay:
+        cases.append("大模型应用、RAG 或推理链路实验")
+    if "cli" in hay or "developer" in hay or "开发者" in hay:
+        cases.append("开发者工具链、命令行自动化或工程效率提升")
+    if "web" in hay or "app" in hay:
+        cases.append("产品原型、Web/App 形态的 AI 助手或控制台")
+    if not cases:
+        cases.append("作为开源项目样本继续观察其定位、实现方式和社区反馈")
+    return "；".join(cases[:3])
+
+
+def make_chinese_intro(repo: dict[str, Any], md: str) -> str:
+    """Create a Chinese-first project introduction from metadata + README.
+
+    Avoids dumping raw README prose. Non-Chinese README descriptions are converted
+    into a Chinese analytical introduction based on metadata, topics, category,
+    language, and detected technical signals.
+    """
+    owner = repo["owner"]["login"] if isinstance(repo.get("owner"), dict) else repo["full_name"].split("/")[0]
+    lang = repo.get("language") or "未标注语言"
+    category = repo.get("hunter_category", "Other")
+    topics = repo.get("topics") or []
+    keywords = extract_keywords(repo, md)
+    topic_text = "、".join(topics[:8]) if topics else "暂无官方 topics"
+    use_cases = infer_use_cases(category, keywords)
+    stars = int(repo.get("stargazers_count") or 0)
+    delta = int(repo.get("star_delta") or 0)
+    updated = (repo.get("pushed_at") or repo.get("updated_at") or "")[:10]
+
+    keyword_hay = " ".join(keywords).lower()
+    focus = []
+    if "agent" in keyword_hay:
+        focus.append("Agent 编排、工具调用或编程助手能力")
+    if "mcp" in keyword_hay:
+        focus.append("MCP/外部工具生态接入")
+    if "llm" in keyword_hay or "rag" in keyword_hay:
+        focus.append("大模型应用链路与知识检索能力")
+    if "cli" in keyword_hay:
+        focus.append("命令行使用体验与自动化入口")
+    if "developer" in keyword_hay or "开发者" in keyword_hay:
+        focus.append("开发者工作流和工程效率")
+    if "web" in keyword_hay or "app" in keyword_hay:
+        focus.append("Web/App 产品形态与用户交互")
+    if not focus:
+        focus.append("项目定位、实现方式和社区反馈")
+
+    maturity = "热度很高" if stars >= 10000 else "具备一定关注度" if stars >= 1000 else "处于早期观察阶段"
+    growth = "本次观测仍有增长" if delta > 0 else "本次观测暂未体现新增 star，后续需要结合连续多日数据判断趋势"
+
+    return (
+        f"这是由 {owner} 维护的 {category} 类开源项目，当前主要语言为 {lang}。"
+        f"从仓库分类、topics 和 README 结构信号判断，它更适合被放入“{use_cases}”这一类观察池。"
+        f"项目当前 star 约 {stars}，属于{maturity}项目；{growth}。"
+        f"关键词显示它值得关注的方向包括：{'、'.join(focus[:5])}。"
+        f"官方 topics 为：{topic_text}。"
+        f"后续评估时建议重点看三件事：第一，README 是否提供清晰的安装、运行和示例；第二，提交与 issue 是否持续活跃；第三，它是否能转化为可复用的 AI 产品能力、开发者工具或工作流资产。"
+    )
+
+def extract_keywords(repo: dict[str, Any], md: str) -> list[str]:
+    keywords: list[str] = []
+    def add(x: str | None):
+        if not x:
+            return
+        x = re.sub(r"[^A-Za-z0-9_+.#\-/\u4e00-\u9fff ]", "", str(x)).strip()
+        if x and x.lower() not in {k.lower() for k in keywords}:
+            keywords.append(x)
+    add(repo.get("hunter_category"))
+    add(repo.get("language"))
+    for t in repo.get("topics") or []:
+        add(t)
+    hay = " ".join([repo.get("description") or "", clean_text(md, 2500)]).lower()
+    vocab = [
+        ("AI Agent", ["agent", "multi-agent", "autonomous"]),
+        ("MCP", ["mcp", "model context protocol"]),
+        ("LLM", ["llm", "large language model", "language model"]),
+        ("RAG", ["rag", "retrieval"]),
+        ("CLI", ["cli", "command line"]),
+        ("开发者工具", ["developer", "devtool", "debug", "testing"]),
+        ("本地优先", ["local-first", "local first"]),
+        ("工作流", ["workflow", "automation"]),
+        ("开源", ["open source", "open-source"]),
+    ]
+    for label, needles in vocab:
+        if any(n in hay for n in needles):
+            add(label)
+    return keywords[:10]
+
+
+def summarize_readme(repo: dict[str, Any], md: str) -> str:
+    return make_chinese_intro(repo, md)
 
 def classify(repo: dict[str, Any], md: str) -> str:
     hay = " ".join([
@@ -289,7 +420,7 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
         "",
         "## 今日推荐",
         "",
-        "| 项目 | 分类 | Stars | 今日/观测增长 | 作者 | 创建时间 | 最近更新 | README 摘要 | 原始链接 |",
+        "| 项目 | 分类 | Stars | 观测增长 | 作者 | 创建时间 | 最近更新 | 关键词 | 原始链接 |",
         "|---|---:|---:|---:|---|---|---|---|---|",
     ]
     for r in repos:
@@ -304,7 +435,7 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
                 md_escape(owner),
                 md_escape((r.get("created_at") or "")[:10]),
                 md_escape((r.get("pushed_at") or r.get("updated_at") or "")[:10]),
-                md_escape(r["hunter_summary"]),
+                md_escape("、".join(r.get("hunter_keywords", []))),
                 f"[GitHub]({r['html_url']})",
             ])
             + " |"
@@ -321,12 +452,12 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
             f"- 时间：创建 {(r.get('created_at') or '')[:10]}；最近更新 {(r.get('pushed_at') or r.get('updated_at') or '')[:10]}",
             f"- Stars：{r.get('stargazers_count', 0)}；观测增长：{r.get('star_delta', 0)}；语言：{r.get('language') or 'N/A'}",
             f"- 原始链接：{r['html_url']}",
-            f"- 功能理解：{r['hunter_summary']}",
+            f"- 关键词：{'、'.join(r.get('hunter_keywords', []))}",
+            "",
+            "#### 项目介绍",
+            "",
+            r["hunter_summary"],
         ]
-        features = r.get("hunter_features") or []
-        if features:
-            lines.append("- README 功能点：")
-            lines.extend([f"  - {f}" for f in features])
         lines.append("")
     daily.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
@@ -336,7 +467,7 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
     if hub.exists():
         content = hub.read_text(encoding="utf-8")
         archive_rows = re.findall(r"\| \[\[daily/[^\n]+", content)
-    archive_link = f"| [[github-hunter/daily/{TODAY}]] | {TODAY} | {len(repos)} | " + ", ".join(sorted({r["hunter_category"] for r in repos})) + " |"
+    archive_link = f"| [[raw/github-hunter/daily/{TODAY}]] | {TODAY} | {len(repos)} | " + ", ".join(sorted({r["hunter_category"] for r in repos})) + " |"
     # Rebuild archive from actual daily files for idempotency.
     rows = []
     for p in sorted(DAILY_DIR.glob("*.md"), reverse=True)[:60]:
@@ -344,7 +475,7 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
         if date == TODAY:
             rows.append(archive_link)
         else:
-            rows.append(f"| [[github-hunter/daily/{date}]] | {date} | - | 历史记录 |")
+            rows.append(f"| [[raw/github-hunter/daily/{date}]] | {date} | - | 历史记录 |")
     hub_lines = [
         "---",
         "title: \"GitHub Hunter 推荐页\"",
@@ -366,8 +497,8 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
         "",
         f"## 最新推荐（{TODAY}）",
         "",
-        "| 项目 | 分类 | Stars | 增长 | 一句话功能 | 链接 |",
-        "|---|---:|---:|---:|---|---|",
+        "| 项目 | 分类 | Stars | 增长 | 关键词 | 项目介绍 | 链接 |",
+        "|---|---:|---:|---:|---|---|---|",
     ]
     for r in repos:
         hub_lines.append(
@@ -376,7 +507,8 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
                 md_escape(r["hunter_category"]),
                 str(r.get("stargazers_count", 0)),
                 str(r.get("star_delta", 0)),
-                md_escape(r["hunter_summary"][:160]),
+                md_escape("、".join(r.get("hunter_keywords", []))),
+                md_escape(r["hunter_summary"][:260]),
                 f"[GitHub]({r['html_url']})",
             ]) + " |"
         )
@@ -391,7 +523,7 @@ def write_outputs(repos: list[dict[str, Any]]) -> tuple[Path, Path]:
     for cat in sorted(by_cat):
         hub_lines.append(f"### {cat}")
         for r in by_cat[cat]:
-            hub_lines.append(f"- [{r['full_name']}]({r['html_url']})：{r['hunter_summary']}")
+            hub_lines.append(f"- [{r['full_name']}]({r['html_url']})：关键词：{'、'.join(r.get('hunter_keywords', []))}；介绍：{r['hunter_summary']}")
         hub_lines.append("")
     hub_lines += [
         "## 历史归档",
@@ -417,11 +549,11 @@ def update_wiki_index() -> None:
 
 ## GitHub Hunter 推荐
 
-每日自动扫描 GitHub 项目，按增长、热度和 README 快速理解整理。
+每日自动扫描 GitHub 项目，按增长、热度和 README 快速理解整理，原始推荐页放在 raw/github-hunter。
 
 | 页面 | 用途 | 摘要 |
 |------|------|------|
-| [[github-hunter/index]] | 推荐页 | 每日 GitHub 开源项目推荐与分类导航 |
+| [[raw/github-hunter/index]] | 推荐页 | 每日 GitHub 开源项目推荐与分类导航 |
 """
         marker = "---\n\n## 元页面"
         if marker in content:
@@ -450,8 +582,8 @@ def update_log(repos: list[dict[str, Any]], hub: Path, daily: Path) -> None:
 
 **操作内容**:
 1. 扫描 star 上升/新项目热度与高 star 活跃项目
-2. 读取候选项目 README 并提取功能摘要、作者、时间、原始链接与分类
-3. 更新独立栏位 `github-hunter/`
+2. 读取候选项目 README 并提取中文项目介绍、关键词、作者、时间、原始链接与分类
+3. 更新独立栏位 `raw/github-hunter/`
 
 **更新文件**:
 - `{hub.relative_to(WIKI)}`
@@ -522,7 +654,7 @@ def main() -> int:
         repo["readme"] = readme[:12000]
         repo["hunter_category"] = classify(repo, readme)
         repo["hunter_summary"] = summarize_readme(repo, readme)
-        repo["hunter_features"] = extract_features(readme)
+        repo["hunter_keywords"] = extract_keywords(repo, readme)
         # avoid filling all slots with the same class unless needed
         if len(enriched) < args.limit - 1 and repo["hunter_category"] in seen_categories and len(seen_categories) >= 3:
             pass
@@ -538,7 +670,7 @@ def main() -> int:
             repo["readme"] = readme[:12000]
             repo["hunter_category"] = classify(repo, readme)
             repo["hunter_summary"] = summarize_readme(repo, readme)
-            repo["hunter_features"] = extract_features(readme)
+            repo["hunter_keywords"] = extract_keywords(repo, readme)
             enriched.append(repo)
             if len(enriched) >= args.limit:
                 break

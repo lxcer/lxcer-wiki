@@ -12,6 +12,9 @@ tags: [log, operations, maintenance]
 
 
 
+
+
+
 ---
 
 ## [2026-05-20] ingest | GitHub Hunter 每日推荐
@@ -20,12 +23,12 @@ tags: [log, operations, maintenance]
 
 **操作内容**:
 1. 扫描 star 上升/新项目热度与高 star 活跃项目
-2. 读取候选项目 README 并提取功能摘要、作者、时间、原始链接与分类
-3. 更新独立栏位 `github-hunter/`
+2. 读取候选项目 README 并提取中文项目介绍、关键词、作者、时间、原始链接与分类
+3. 更新独立栏位 `raw/github-hunter/`
 
 **更新文件**:
-- `github-hunter/index.md`
-- `github-hunter/daily/2026-05-20.md`
+- `raw/github-hunter/index.md`
+- `raw/github-hunter/daily/2026-05-20.md`
 - `index.md`
 - `.github-hunter/state.json`
 

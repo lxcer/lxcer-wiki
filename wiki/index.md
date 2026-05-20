@@ -61,11 +61,11 @@ tags: [index, navigation, complete]
 
 ## GitHub Hunter 推荐
 
-每日自动扫描 GitHub 项目，按增长、热度和 README 快速理解整理。
+每日自动扫描 GitHub 项目，按增长、热度和 README 快速理解整理，原始推荐页放在 raw/github-hunter。
 
 | 页面 | 用途 | 摘要 |
 |------|------|------|
-| [[github-hunter/index]] | 推荐页 | 每日 GitHub 开源项目推荐与分类导航 |
+| [[raw/github-hunter/index]] | 推荐页 | 每日 GitHub 开源项目推荐与分类导航 |
 
 ---
 
