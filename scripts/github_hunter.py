@@ -349,8 +349,11 @@ def summarize_readme(repo: dict[str, Any], md: str) -> str:
 
 def classify(repo: dict[str, Any], md: str) -> str:
     hay = " ".join([
-        repo.get("name", ""), repo.get("description", ""), repo.get("language") or "",
-        " ".join(repo.get("topics") or []), clean_text(md, 2500)
+        str(repo.get("name") or ""),
+        str(repo.get("description") or ""),
+        str(repo.get("language") or ""),
+        " ".join(str(t) for t in (repo.get("topics") or []) if t),
+        clean_text(md, 2500),
     ]).lower()
     scores: list[tuple[int, str]] = []
     for category, keys in CATEGORY_RULES:
@@ -606,7 +609,17 @@ def update_log(repos: list[dict[str, Any]], hub: Path, daily: Path) -> None:
 
 
 def git_sync(files: list[Path]) -> None:
-    rels = [str(p.relative_to(WIKI)) if p.is_absolute() else str(p) for p in files]
+    rels: list[str] = []
+    for p in files:
+        pp = p if isinstance(p, Path) else Path(str(p))
+        if pp.is_absolute():
+            try:
+                rels.append(str(pp.relative_to(WIKI)))
+            except ValueError:
+                # fallback for files maintained outside wiki/ (e.g. .github-hunter/state.json)
+                rels.append(str(pp))
+        else:
+            rels.append(str(pp))
     # Include state for star-delta tracking; okay to version, no secrets.
     cmds = [
         ["git", "add", *rels],
