@@ -1,10 +1,269 @@
 {
-  "last_run": "2026-05-21T02:13:18Z",
+  "history": {
+    "BasZ4ll/Stable-Diffusion-WebUI": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 598
+      }
+    ],
+    "DenisSergeevitch/agents-best-practices": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 944
+      }
+    ],
+    "Doorman11991/smallcode": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 1076
+      }
+    ],
+    "EbookFoundation/free-programming-books": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 388692
+      }
+    ],
+    "Flizorules05/ROM-MGBA-Pokemon-Emulator-PC": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 595
+      }
+    ],
+    "FoundZiGu/GuJumpgate": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 1426
+      }
+    ],
+    "Kappaemme-git/codex-complexity-optimizer": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 819
+      }
+    ],
+    "NousResearch/hermes-agent": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 161513
+      }
+    ],
+    "Significant-Gravitas/AutoGPT": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 184445
+      }
+    ],
+    "Snailclimb/JavaGuide": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 155810
+      }
+    ],
+    "Sunislazi/rbxfpsunlocker-boost-More-240FPS": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 592
+      }
+    ],
+    "TheAlgorithms/Python": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 221289
+      }
+    ],
+    "ZoyaMalhotra/DualSenseX-DSX-Steam-Edition": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 584
+      }
+    ],
+    "affaan-m/ECC": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 188164
+      }
+    ],
+    "anomalyco/opencode": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 163611
+      }
+    ],
+    "anthropics/skills": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 138831
+      }
+    ],
+    "arnabchoudhury404/hydra-launcher": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 596
+      }
+    ],
+    "awesome-selfhosted/awesome-selfhosted": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 294374
+      }
+    ],
+    "bytedance/Lance": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 660
+      }
+    ],
+    "f/prompts.chat": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 162626
+      }
+    ],
+    "facebook/react": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 245166
+      }
+    ],
+    "freeCodeCamp/freeCodeCamp": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 445254
+      }
+    ],
+    "huggingface/transformers": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 160850
+      }
+    ],
+    "langflow-ai/langflow": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 148625
+      }
+    ],
+    "langgenius/dify": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 142178
+      }
+    ],
+    "n8n-io/n8n": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 189099
+      }
+    ],
+    "nilbuild/developer-roadmap": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 355199
+      }
+    ],
+    "obra/superpowers": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 201520
+      }
+    ],
+    "ollama/ollama": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 171938
+      }
+    ],
+    "open-webui/open-webui": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 138127
+      }
+    ],
+    "openclaw/clawpatch": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 618
+      }
+    ],
+    "openclaw/openclaw": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 373763
+      }
+    ],
+    "public-apis/public-apis": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 436417
+      }
+    ],
+    "sapientinc/HRM-Text": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 630
+      }
+    ],
+    "tensorflow/tensorflow": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 195219
+      }
+    ],
+    "thananon/9arm-skills": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 1163
+      }
+    ],
+    "torvalds/linux": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 233992
+      }
+    ],
+    "trekhleb/javascript-algorithms": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 195981
+      }
+    ],
+    "ultraworkers/claw-code": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 192171
+      }
+    ],
+    "vercel-labs/zerolang": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 4198
+      }
+    ],
+    "vinta/awesome-python": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 298900
+      }
+    ],
+    "xw7872081123/wallpaper-engine-steam": [
+      {
+        "seen_at": "2026-05-22T01:00:13Z",
+        "stars": 617
+      }
+    ]
+  },
+  "last_run": "2026-05-22T01:00:13Z",
   "repos": {
     "0xdeadbeefnetwork/ssh-keysign-pwn": {
       "html_url": "https://github.com/0xdeadbeefnetwork/ssh-keysign-pwn",
       "last_seen": "2026-05-21T02:13:18Z",
       "stars": 640
+    },
+    "BasZ4ll/Stable-Diffusion-WebUI": {
+      "html_url": "https://github.com/BasZ4ll/Stable-Diffusion-WebUI",
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 598
     },
     "DARKHOLEUM/VoidStrap-For-Roblox": {
       "html_url": "https://github.com/DARKHOLEUM/VoidStrap-For-Roblox",
@@ -13,13 +272,13 @@
     },
     "DenisSergeevitch/agents-best-practices": {
       "html_url": "https://github.com/DenisSergeevitch/agents-best-practices",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 903
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 944
     },
     "Doorman11991/smallcode": {
       "html_url": "https://github.com/Doorman11991/smallcode",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 843
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 1076
     },
     "DuskMosquito/Lossless-Scaling-Desktop-2026": {
       "html_url": "https://github.com/DuskMosquito/Lossless-Scaling-Desktop-2026",
@@ -28,13 +287,18 @@
     },
     "EbookFoundation/free-programming-books": {
       "html_url": "https://github.com/EbookFoundation/free-programming-books",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 388646
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 388692
+    },
+    "Flizorules05/ROM-MGBA-Pokemon-Emulator-PC": {
+      "html_url": "https://github.com/Flizorules05/ROM-MGBA-Pokemon-Emulator-PC",
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 595
     },
     "FoundZiGu/GuJumpgate": {
       "html_url": "https://github.com/FoundZiGu/GuJumpgate",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 976
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 1426
     },
     "Juwluuu/Subnautica-2-Release": {
       "html_url": "https://github.com/Juwluuu/Subnautica-2-Release",
@@ -43,8 +307,8 @@
     },
     "Kappaemme-git/codex-complexity-optimizer": {
       "html_url": "https://github.com/Kappaemme-git/codex-complexity-optimizer",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 805
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 819
     },
     "Nightmare-Eclipse/MiniPlasma": {
       "html_url": "https://github.com/Nightmare-Eclipse/MiniPlasma",
@@ -53,58 +317,78 @@
     },
     "NousResearch/hermes-agent": {
       "html_url": "https://github.com/NousResearch/hermes-agent",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 159782
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 161513
     },
     "Significant-Gravitas/AutoGPT": {
       "html_url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 184434
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 184445
     },
     "Snailclimb/JavaGuide": {
       "html_url": "https://github.com/Snailclimb/JavaGuide",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 155789
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 155810
+    },
+    "Sunislazi/rbxfpsunlocker-boost-More-240FPS": {
+      "html_url": "https://github.com/Sunislazi/rbxfpsunlocker-boost-More-240FPS",
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 592
     },
     "TheAlgorithms/Python": {
       "html_url": "https://github.com/TheAlgorithms/Python",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 221257
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 221289
+    },
+    "ZoyaMalhotra/DualSenseX-DSX-Steam-Edition": {
+      "html_url": "https://github.com/ZoyaMalhotra/DualSenseX-DSX-Steam-Edition",
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 584
     },
     "affaan-m/ECC": {
       "html_url": "https://github.com/affaan-m/ECC",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 187741
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 188164
     },
     "anomalyco/opencode": {
       "html_url": "https://github.com/anomalyco/opencode",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 163166
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 163611
     },
     "anthropics/skills": {
       "html_url": "https://github.com/anthropics/skills",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 138296
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 138831
+    },
+    "arnabchoudhury404/hydra-launcher": {
+      "html_url": "https://github.com/arnabchoudhury404/hydra-launcher",
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 596
     },
     "awesome-selfhosted/awesome-selfhosted": {
       "html_url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 294133
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 294374
     },
     "boona13/mykonos-island-voxels": {
       "html_url": "https://github.com/boona13/mykonos-island-voxels",
       "last_seen": "2026-05-21T02:13:18Z",
       "stars": 679
     },
+    "bytedance/Lance": {
+      "html_url": "https://github.com/bytedance/Lance",
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 660
+    },
     "f/prompts.chat": {
       "html_url": "https://github.com/f/prompts.chat",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 162594
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 162626
     },
     "facebook/react": {
       "html_url": "https://github.com/facebook/react",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 245150
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 245166
     },
     "facebookresearch/vggt-omega": {
       "html_url": "https://github.com/facebookresearch/vggt-omega",
@@ -118,23 +402,23 @@
     },
     "freeCodeCamp/freeCodeCamp": {
       "html_url": "https://github.com/freeCodeCamp/freeCodeCamp",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 445198
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 445254
     },
     "huggingface/transformers": {
       "html_url": "https://github.com/huggingface/transformers",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 160814
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 160850
     },
     "langflow-ai/langflow": {
       "html_url": "https://github.com/langflow-ai/langflow",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 148570
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 148625
     },
     "langgenius/dify": {
       "html_url": "https://github.com/langgenius/dify",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 142062
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 142178
     },
     "multica-ai/andrej-karpathy-skills": {
       "html_url": "https://github.com/multica-ai/andrej-karpathy-skills",
@@ -143,38 +427,38 @@
     },
     "n8n-io/n8n": {
       "html_url": "https://github.com/n8n-io/n8n",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 188909
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 189099
     },
     "nilbuild/developer-roadmap": {
       "html_url": "https://github.com/nilbuild/developer-roadmap",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 355149
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 355199
     },
     "obra/superpowers": {
       "html_url": "https://github.com/obra/superpowers",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 200141
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 201520
     },
     "ollama/ollama": {
       "html_url": "https://github.com/ollama/ollama",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 171839
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 171938
     },
     "open-webui/open-webui": {
       "html_url": "https://github.com/open-webui/open-webui",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 137993
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 138127
     },
     "openclaw/clawpatch": {
       "html_url": "https://github.com/openclaw/clawpatch",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 606
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 618
     },
     "openclaw/openclaw": {
       "html_url": "https://github.com/openclaw/openclaw",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 373582
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 373763
     },
     "pedrodg28/yuzu-emu": {
       "html_url": "https://github.com/pedrodg28/yuzu-emu",
@@ -183,8 +467,13 @@
     },
     "public-apis/public-apis": {
       "html_url": "https://github.com/public-apis/public-apis",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 436166
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 436417
+    },
+    "sapientinc/HRM-Text": {
+      "html_url": "https://github.com/sapientinc/HRM-Text",
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 630
     },
     "snoozinjs/Delta-exec": {
       "html_url": "https://github.com/snoozinjs/Delta-exec",
@@ -193,38 +482,38 @@
     },
     "tensorflow/tensorflow": {
       "html_url": "https://github.com/tensorflow/tensorflow",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 195209
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 195219
     },
     "thananon/9arm-skills": {
       "html_url": "https://github.com/thananon/9arm-skills",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 910
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 1163
     },
     "torvalds/linux": {
       "html_url": "https://github.com/torvalds/linux",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 233877
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 233992
     },
     "trekhleb/javascript-algorithms": {
       "html_url": "https://github.com/trekhleb/javascript-algorithms",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 195977
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 195981
     },
     "ultraworkers/claw-code": {
       "html_url": "https://github.com/ultraworkers/claw-code",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 192111
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 192171
     },
     "vercel-labs/zerolang": {
       "html_url": "https://github.com/vercel-labs/zerolang",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 3989
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 4198
     },
     "vinta/awesome-python": {
       "html_url": "https://github.com/vinta/awesome-python",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 298738
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 298900
     },
     "x1xhlol/system-prompts-and-models-of-ai-tools": {
       "html_url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
@@ -233,8 +522,8 @@
     },
     "xw7872081123/wallpaper-engine-steam": {
       "html_url": "https://github.com/xw7872081123/wallpaper-engine-steam",
-      "last_seen": "2026-05-21T02:13:18Z",
-      "stars": 615
+      "last_seen": "2026-05-22T01:00:13Z",
+      "stars": 617
     },
     "yetone/native-feel-skill": {
       "html_url": "https://github.com/yetone/native-feel-skill",
