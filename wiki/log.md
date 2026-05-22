@@ -20,6 +20,7 @@ tags: [log, operations, maintenance]
 
 
 
+
 ---
 
 ## [2026-05-22] ingest | GitHub Hunter 每日推荐
@@ -37,7 +38,7 @@ tags: [log, operations, maintenance]
 - `index.md`
 - `.github-hunter/state.json`
 
-**今日项目**: NousResearch/hermes-agent, obra/superpowers, affaan-m/ECC, ultraworkers/claw-code, anthropics/skills
+**今日项目**: ultraworkers/claw-code, openclaw/openclaw, obra/superpowers, vercel-labs/zerolang, thananon/9arm-skills
 
 ---
 
